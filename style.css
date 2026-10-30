@@ -1,1 +1,343 @@
+Claude Style · CSS:root {
+    --bg: #fbfaf6;
+    --ink: #121412;
+    --muted: #4b5147;
+    --line: #d8ccb0;
+    --accent: #1f4d36;
+    --accent-ink: #ffffff;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+}
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0d130f;
+        --ink: #f2eee3;
+        --muted: #a9b1a1;
+        --line: #2a3a2f;
+        --accent: #d4bf8f;
+        --accent-ink: #0d130f;
+        color-scheme: dark;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--display);
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* Layout */
+.site-header,
+.hero,
+.section,
+.site-footer {
+    width: min(100% - 3rem, 56rem);
+    margin-inline: auto;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.5rem;
+}
+
+.logo {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.site-header nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.site-header nav a {
+    text-decoration: none;
+    color: var(--muted);
+}
+
+.site-header nav a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Hero: the one loud element */
+.hero {
+    padding-block: clamp(4rem, 12vw, 9rem) clamp(3rem, 8vw, 6rem);
+}
+
+.hero h1 {
+    font-weight: 800;
+    font-size: clamp(2.75rem, 8.5vw, 6rem);
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+}
+
+.lead {
+    max-width: 38rem;
+    margin: 2rem 0 0;
+    font-size: 1.25rem;
+    color: var(--muted);
+}
+
+.hero-links,
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    margin: 2rem 0 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.4rem;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.button:hover {
+    filter: brightness(1.1);
+}
+
+.text-link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--line);
+}
+
+.text-link:hover {
+    text-decoration-color: var(--accent);
+}
+
+/* Sections */
+.section {
+    padding-block: 3.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.section h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+}
+
+.prose {
+    max-width: 40rem;
+}
+
+.prose p {
+    margin: 0 0 1rem;
+}
+
+/* Projects */
+.projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem 2rem;
+    padding-block: 1.75rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.project:first-child {
+    padding-top: 0;
+}
+
+.project:last-child {
+    border-bottom: 0;
+}
+
+.project h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    margin: 0;
+    max-width: 36rem;
+}
+
+.project .stack {
+    margin-top: 0.6rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: flex-end;
+}
+
+.project-links a {
+    color: var(--accent);
+    text-underline-offset: 4px;
+}
+
+/* About */
+.skills-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 2rem 0 0.5rem;
+}
+
+.skills {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Footer */
+.site-footer {
+    padding-block: 2.5rem 3rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 40rem) {
+    .project {
+        grid-template-columns: 1fr;
+    }
+
+    .project-links {
+        flex-direction: row;
+        gap: 1.25rem;
+        align-items: flex-start;
+    }
+
+    .site-header nav {
+        gap: 1rem;
+    }
+}
+
+/* Scroll scene: picture stays pinned while text panels slide over it */
+.scene {
+    position: relative;
+    width: 100%;
+}
+
+.scene-bg {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    background: #0a1f14 url("images/scene.svg") center / cover no-repeat;
+}
+
+.scene-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.3);
+}
+
+.scene-panels {
+    position: relative;
+    margin-top: -100vh;
+    margin-top: -100svh;
+}
+
+.panel {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-inline: max(1.5rem, calc((100% - 56rem) / 2));
+}
+
+.panel-text {
+    max-width: 28rem;
+    color: #fff;
+}
+
+.panel-text h2 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.panel-text p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Fade-in used by script.js */
+.reveal {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
